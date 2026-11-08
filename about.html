@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn the story of North Star Bakery, how we source our ingredients, and meet the bakers behind every loaf.">
   <title>About Our Bakery | North Star Bakery</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <img src="media/bakery-logo_c.png" alt="North Star Bakery logo" width="160" height="137">
-    <p>Handmade every morning for our neighbors</p>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+    <div class="brand">
+      <img src="media/bakery-logo_c.png" alt="North Star Bakery logo" width="160" height="137">
+      <p class="tagline">Handmade every morning for our neighbors</p>
+    </div>
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -18,18 +23,19 @@
         <li><a href="contact.html">Contact and Pre-Orders</a></li>
       </ul>
     </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <h1>About North Star Bakery</h1>
 
-    <section aria-labelledby="story-heading">
+    <section class="media-block" aria-labelledby="story-heading">
       <h2 id="story-heading">Our Story</h2>
       <p>North Star Bakery began in 2015 when two friends turned a shared love of bread into a small shop on Maple Avenue. They named it after the North Star because they wanted the bakery to be a steady, guiding light for the neighborhood: a place where people could always find a warm welcome and something good to eat.</p>
       <p>Today we bake for commuters, families, schools, and local event planners. We still mix every batch by hand and still know many of our customers by name.</p>
     </section>
 
-    <section aria-labelledby="video-heading">
+    <section class="media-block" aria-labelledby="video-heading">
       <h2 id="video-heading">Behind the Scenes in Our Kitchen</h2>
       <p>Take a short look at how our team shapes, proofs, and bakes each morning before the doors open.</p>
       <video controls preload="metadata" width="640" poster="media/bakery-storefront_c.png">
@@ -38,7 +44,7 @@
       </video>
     </section>
 
-    <section aria-labelledby="sourcing-heading">
+    <section class="media-block" aria-labelledby="sourcing-heading">
       <h2 id="sourcing-heading">Our Sourcing Philosophy</h2>
       <p>Good bread starts with good ingredients. We buy as close to home as we can so our money stays in the community and our ingredients stay fresh.</p>
       <ul>
@@ -51,27 +57,31 @@
 
     <section aria-labelledby="staff-heading">
       <h2 id="staff-heading">Meet Our Staff</h2>
+      <div class="card-row staff-row">
 
-      <article>
+      <article class="card">
         <h3>Maria Lopez, Co-Owner and Head Baker</h3>
         <p>Maria has baked bread for more than 20 years. She cares for our sourdough starter and develops every new recipe on our menu.</p>
       </article>
 
-      <article>
+      <article class="card">
         <h3>James Carter, Co-Owner and Pastry Chef</h3>
         <p>James leads our pastry team. His croissants and cinnamon rolls are the reason many commuters stop by every morning.</p>
       </article>
 
-      <article>
+      <article class="card">
         <h3>Aisha Rahman, Cake Designer and Event Coordinator</h3>
         <p>Aisha works with families and event planners to design custom cakes and large orders for weddings, birthdays, and community events.</p>
       </article>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
     <p>&copy; 2026 North Star Bakery. All rights reserved.</p>
     <p>214 Maple Avenue, Northfield, MN 55057 | <a href="tel:+15075550142">(507) 555-0142</a> | <a href="mailto:hello@northstarbakery.example">hello@northstarbakery.example</a></p>
+    </div>
   </footer>
 </body>
 </html>

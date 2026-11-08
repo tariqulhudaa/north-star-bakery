@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Send North Star Bakery a pre-order request or general question, and find our location and hours.">
   <title>Contact and Pre-Orders | North Star Bakery</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <img src="media/bakery-logo_c.png" alt="North Star Bakery logo" width="160" height="137">
-    <p>Handmade every morning for our neighbors</p>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+    <div class="brand">
+      <img src="media/bakery-logo_c.png" alt="North Star Bakery logo" width="160" height="137">
+      <p class="tagline">Handmade every morning for our neighbors</p>
+    </div>
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -18,12 +23,14 @@
         <li><a href="contact.html" aria-current="page">Contact and Pre-Orders</a></li>
       </ul>
     </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <h1>Contact Us and Pre-Order</h1>
-    <p>Want to reserve a dozen pastries, order a custom cake, or ask us a question? Fill out the form below and we will reply within one business day. Payment is made at pickup.</p>
+    <p class="intro">Want to reserve a dozen pastries, order a custom cake, or ask us a question? Fill out the form below and we will reply within one business day. Payment is made at pickup.</p>
 
+    <div class="contact-layout">
     <section aria-labelledby="form-heading">
       <h2 id="form-heading">Pre-Order and Inquiry Request</h2>
       <p>Fields marked with an asterisk (*) are required.</p>
@@ -51,15 +58,15 @@
         <fieldset>
           <legend>Request Type *</legend>
 
-          <p>
+          <p class="radio-option">
             <input type="radio" id="type-preorder" name="request-type" value="pre-order" required checked>
             <label for="type-preorder">Pre-order for pickup</label>
           </p>
-          <p>
+          <p class="radio-option">
             <input type="radio" id="type-cake" name="request-type" value="custom-cake">
             <label for="type-cake">Custom or event cake</label>
           </p>
-          <p>
+          <p class="radio-option">
             <input type="radio" id="type-question" name="request-type" value="general-question">
             <label for="type-question">General question</label>
           </p>
@@ -93,14 +100,15 @@
           </p>
         </fieldset>
 
-        <p>
+        <p class="form-actions">
           <button type="submit">Send My Request</button>
           <button type="reset">Clear Form</button>
         </p>
       </form>
     </section>
 
-    <section aria-labelledby="location-heading">
+    <div class="contact-info">
+    <section class="card" aria-labelledby="location-heading">
       <h2 id="location-heading">Our Location</h2>
       <address>
         North Star Bakery<br>
@@ -112,7 +120,7 @@
       <p>We are on the corner of Maple Avenue and 3rd Street, one block from the downtown bus stop. Free street parking is available in front of the shop.</p>
     </section>
 
-    <section aria-labelledby="hours-heading">
+    <section class="card" aria-labelledby="hours-heading">
       <h2 id="hours-heading">Hours of Operation</h2>
       <table>
         <caption>North Star Bakery weekly hours</caption>
@@ -143,11 +151,15 @@
       </table>
       <p>Pre-orders need at least 24 hours' notice. Custom cakes need at least 72 hours' notice.</p>
     </section>
+    </div>
+    </div>
   </main>
 
-  <footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
     <p>&copy; 2026 North Star Bakery. All rights reserved.</p>
     <p>214 Maple Avenue, Northfield, MN 55057 | <a href="tel:+15075550142">(507) 555-0142</a> | <a href="mailto:hello@northstarbakery.example">hello@northstarbakery.example</a></p>
+    </div>
   </footer>
 </body>
 </html>

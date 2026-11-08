@@ -1,0 +1,643 @@
+/* ==========================================================
+   North Star Bakery - Shared Stylesheet (Touchstone 3)
+   Mobile-first: base styles target small screens, and the
+   media queries at the bottom add multi-column layouts for
+   tablets and desktops.
+
+   Color palette (4 colors, taken from the bakery logo)
+     Loaf Brown   #5C3A2E  headings, header, buttons, links
+     Wheat Tan    #C49E82  borders, accents, highlight blocks
+     Flour Cream  #FBF6F0  page and card backgrounds
+     Espresso     #2E211B  body text
+
+   Fonts (2 families)
+     Fraunces     headings (warm, hand-crafted serif)
+     Nunito Sans  body text, navigation, forms (clean sans-serif)
+   ========================================================== */
+
+/* ---------- Self-hosted fonts ---------- */
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito-sans-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Design tokens ---------- */
+:root {
+  --brown: #5C3A2E;
+  --tan: #C49E82;
+  --cream: #FBF6F0;
+  --ink: #2E211B;
+
+  --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+
+  /* Spacing scale used everywhere for consistent rhythm */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  --radius: 10px;
+  --max-width: 72rem;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;      /* 17px for comfortable reading */
+  line-height: 1.65;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Typography and hierarchy ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--brown);
+  line-height: 1.2;
+  margin: 0 0 var(--space-sm);
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* Small tan bar under section headings helps users scan */
+section > h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 4px;
+  margin-top: var(--space-xs);
+  border-radius: 2px;
+  background-color: var(--tan);
+}
+
+p,
+ul,
+address,
+figure {
+  margin: 0 0 var(--space-sm);
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+strong {
+  color: var(--brown);
+}
+
+address {
+  font-style: normal;
+}
+
+a {
+  color: var(--brown);
+  font-weight: 700;
+  text-decoration-color: var(--tan);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--brown);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--brown);
+  outline-offset: 2px;
+}
+
+/* Skip link: hidden until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: var(--space-sm);
+  top: -4rem;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--cream);
+  border-radius: var(--radius);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* ---------- Header and navigation ---------- */
+.site-header {
+  background-color: var(--brown);
+  color: var(--cream);
+  padding: var(--space-sm);
+  border-bottom: 6px solid var(--tan);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;      /* stacked on phones */
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.brand img {
+  width: 76px;
+  height: auto;
+  background-color: var(--cream);
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.site-header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav li {
+  margin: 0;
+}
+
+.site-header nav a {
+  display: block;
+  padding: 0.55rem 0.9rem;    /* large tap targets on mobile */
+  border: 2px solid transparent;
+  border-radius: 999px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-header nav a:hover {
+  border-color: var(--tan);
+}
+
+/* Current page is shown as a filled cream pill */
+.site-header nav a[aria-current="page"] {
+  background-color: var(--cream);
+  color: var(--brown);
+}
+
+.site-header a:focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ---------- Main content area ---------- */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+}
+
+main > h1 {
+  text-align: center;
+}
+
+.intro {
+  max-width: 44rem;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+main section {
+  margin-bottom: var(--space-xl);
+}
+
+/* Image + text layout (stacked on mobile, side by side later) */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* flex-basis 0 + min-width 0 keep large images from
+   squeezing the text column: both halves share space equally */
+.split > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.split img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* Row of cards built with Flexbox */
+.card-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.card {
+  flex: 1;
+  margin: 0;
+  padding: var(--space-md);
+  background-color: var(--cream);
+  border: 1px solid var(--tan);
+  border-top: 6px solid var(--brown);
+  border-radius: var(--radius);
+}
+
+.card-row > section {
+  margin-bottom: 0;
+}
+
+.contact-info > section {
+  margin-bottom: var(--space-md);
+}
+
+.card h2,
+.card h3 {
+  margin-bottom: var(--space-xs);
+}
+
+/* Highlighted block for important notices (allergy info, price) */
+.notice {
+  padding: var(--space-md);
+  background-color: var(--tan);
+  color: var(--ink);
+  border-radius: var(--radius);
+}
+
+.notice h2,
+.notice strong {
+  color: var(--ink);
+}
+
+.notice h2::after {
+  background-color: var(--brown);
+}
+
+.price {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--tan);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.price strong {
+  color: var(--ink);
+}
+
+/* Call-to-action links styled as buttons */
+.button,
+button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--brown);
+  border-radius: 999px;
+  background-color: var(--brown);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover,
+button:hover {
+  background-color: var(--ink);
+  border-color: var(--ink);
+}
+
+button[type="reset"] {
+  background-color: var(--cream);
+  color: var(--brown);
+}
+
+button[type="reset"]:hover {
+  background-color: var(--tan);
+  color: var(--ink);
+}
+
+/* ---------- Figure, audio, video ---------- */
+figure img {
+  border-radius: var(--radius);
+}
+
+figcaption {
+  margin-top: var(--space-xs);
+  padding-left: var(--space-sm);
+  border-left: 4px solid var(--tan);
+  font-style: italic;
+}
+
+/* Signature Loaf figure: smaller photo, larger caption text */
+figure.split img {
+  max-width: 22rem;
+}
+
+figure.split figcaption {
+  font-size: 1.2rem;
+}
+
+audio {
+  width: 100%;
+  margin-bottom: var(--space-sm);
+}
+
+video {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-sm);
+}
+
+.media-block {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Staff cards ---------- */
+.staff-row article h3 {
+  font-size: 1.15rem;
+}
+
+/* ---------- Forms ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+fieldset {
+  margin: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+}
+
+legend {
+  padding: 0 var(--space-xs);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--brown);
+}
+
+label {
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.65rem 0.75rem;
+  border: 2px solid var(--tan);
+  border-radius: 6px;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--brown);
+}
+
+/* Radio buttons sit on the same line as their labels */
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.radio-option input {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--brown);
+}
+
+.radio-option label {
+  font-weight: 400;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+/* ---------- Table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-sm);
+}
+
+caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+th,
+td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--tan);
+}
+
+thead th {
+  background-color: var(--brown);
+  color: var(--cream);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--ink);
+  color: var(--cream);
+  padding: var(--space-lg) var(--space-sm);
+  text-align: center;
+  border-top: 6px solid var(--tan);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--cream);
+}
+
+.site-footer a:focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ==========================================================
+   Tablet and up (768px): switch stacked content to rows
+   ========================================================== */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  main {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .split {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  /* Alternate image side for visual rhythm */
+  .split.reverse {
+    flex-direction: row-reverse;
+  }
+
+  figure.split > img {
+    flex: 0 0 22rem;
+  }
+
+  .card-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .form-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* ==========================================================
+   Desktop (1024px): logo left, navigation right in one row,
+   and the contact page form sits beside the location info
+   ========================================================== */
+@media (min-width: 1024px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-header nav ul {
+    justify-content: flex-end;
+  }
+
+  .contact-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .contact-layout > section:first-child {
+    flex: 3;
+  }
+
+  .contact-layout > .contact-info {
+    flex: 2;
+    position: sticky;
+    top: var(--space-md);
+  }
+}

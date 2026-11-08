@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Browse North Star Bakery's handmade breads, pastries, and cakes with price ranges. Pre-order for pickup.">
   <title>Breads, Pastries, and Cakes | North Star Bakery</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <img src="media/bakery-logo_c.png" alt="North Star Bakery logo" width="160" height="137">
-    <p>Handmade every morning for our neighbors</p>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+    <div class="brand">
+      <img src="media/bakery-logo_c.png" alt="North Star Bakery logo" width="160" height="137">
+      <p class="tagline">Handmade every morning for our neighbors</p>
+    </div>
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -18,60 +23,75 @@
         <li><a href="contact.html">Contact and Pre-Orders</a></li>
       </ul>
     </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <h1>Our Breads, Pastries, and Cakes</h1>
-    <p>Everything on this page is baked by hand in our kitchen. Prices are listed as ranges because sizes and flavors vary. We do not offer online checkout. To reserve an item, please send us a <a href="contact.html">pre-order request</a> and pay when you pick up.</p>
+    <p class="intro">Everything on this page is baked by hand in our kitchen. Prices are listed as ranges because sizes and flavors vary. We do not offer online checkout. To reserve an item, please send us a <a href="contact.html">pre-order request</a> and pay when you pick up.</p>
 
     <section aria-labelledby="breads-heading">
       <h2 id="breads-heading">Breads</h2>
-      <img src="media/bakery-bread_c.png" alt="Rustic sourdough, whole wheat, and seeded loaves with crackly golden crusts lined up in our glass display case" width="400" height="400">
-      <p>Our breads are slow fermented for deeper flavor and a crisp, crackly crust. <strong>Price range: $6 to $12 per loaf.</strong></p>
-      <ul>
-        <li><strong>Country Sourdough:</strong> Our everyday loaf with a tangy, chewy center.</li>
-        <li><strong>Whole Wheat Honey:</strong> Soft and lightly sweet, made with local honey.</li>
-        <li><strong>Seeded Rye:</strong> Hearty rye packed with sunflower, flax, and sesame seeds.</li>
-        <li><strong>Rosemary Focaccia:</strong> Olive oil bread topped with fresh rosemary and sea salt.</li>
-      </ul>
+      <div class="split">
+        <div>
+          <img src="media/bakery-bread_c.png" alt="Rustic sourdough, whole wheat, and seeded loaves with crackly golden crusts lined up in our glass display case" width="400" height="400">
+        </div>
+        <div>
+          <p>Our breads are slow fermented for deeper flavor and a crisp, crackly crust.</p>
+          <p class="price"><strong>Price range: $6 to $12 per loaf.</strong></p>
+          <ul>
+            <li><strong>Country Sourdough:</strong> Our everyday loaf with a tangy, chewy center.</li>
+            <li><strong>Whole Wheat Honey:</strong> Soft and lightly sweet, made with local honey.</li>
+            <li><strong>Seeded Rye:</strong> Hearty rye packed with sunflower, flax, and sesame seeds.</li>
+            <li><strong>Rosemary Focaccia:</strong> Olive oil bread topped with fresh rosemary and sea salt.</li>
+          </ul>
+        </div>
+      </div>
 
-      <figure>
+      <figure class="split reverse">
         <img src="media/bakery-signature-loaf_c.png" alt="Round, dark-crusted Signature Loaf dusted with flour, resting on a white and gray checkered kitchen towel" width="400" height="400">
         <figcaption>Our Signature Loaf: a dark rye and sourdough blend, fermented for 24 hours and baked fresh every morning. $10 per loaf.</figcaption>
       </figure>
     </section>
 
-    <section aria-labelledby="pastries-heading">
-      <h2 id="pastries-heading">Pastries</h2>
-      <p>Perfect for a quick breakfast on your commute or a weekend treat with the family. <strong>Price range: $3 to $6 each.</strong></p>
-      <ul>
-        <li><strong>Butter Croissants:</strong> Flaky, golden layers made with real butter.</li>
-        <li><strong>Cinnamon Rolls:</strong> Soft rolls swirled with cinnamon sugar and topped with vanilla glaze.</li>
-        <li><strong>Seasonal Fruit Danishes:</strong> Filled with fruit from local farms that changes each season.</li>
-        <li><strong>Cookies:</strong> Chocolate chunk, oatmeal raisin, and sugar cookies baked fresh daily.</li>
-      </ul>
-    </section>
+    <div class="card-row">
+      <section class="card" aria-labelledby="pastries-heading">
+        <h2 id="pastries-heading">Pastries</h2>
+        <p>Perfect for a quick breakfast on your commute or a weekend treat with the family.</p>
+        <p class="price"><strong>Price range: $3 to $6 each.</strong></p>
+        <ul>
+          <li><strong>Butter Croissants:</strong> Flaky, golden layers made with real butter.</li>
+          <li><strong>Cinnamon Rolls:</strong> Soft rolls swirled with cinnamon sugar and topped with vanilla glaze.</li>
+          <li><strong>Seasonal Fruit Danishes:</strong> Filled with fruit from local farms that changes each season.</li>
+          <li><strong>Cookies:</strong> Chocolate chunk, oatmeal raisin, and sugar cookies baked fresh daily.</li>
+        </ul>
+      </section>
 
-    <section aria-labelledby="cakes-heading">
-      <h2 id="cakes-heading">Cakes</h2>
-      <p>From small birthday cakes to tiered cakes for weddings and community events, we bake every cake to order. <strong>Price range: $25 to $150, depending on size and design.</strong></p>
-      <ul>
-        <li><strong>Classic Layer Cakes:</strong> Chocolate, vanilla bean, or carrot cake in 6-inch to 10-inch sizes.</li>
-        <li><strong>Celebration Cakes:</strong> Custom decorated cakes for birthdays, graduations, and showers.</li>
-        <li><strong>Event and Sheet Cakes:</strong> Serves 20 to 100 guests, ideal for event planners.</li>
-      </ul>
-      <p>Cakes require at least 72 hours' notice. <a href="contact.html">Request a custom cake</a>.</p>
-    </section>
+      <section class="card" aria-labelledby="cakes-heading">
+        <h2 id="cakes-heading">Cakes</h2>
+        <p>From small birthday cakes to tiered cakes for weddings and community events, we bake every cake to order.</p>
+        <p class="price"><strong>Price range: $25 to $150, depending on size and design.</strong></p>
+        <ul>
+          <li><strong>Classic Layer Cakes:</strong> Chocolate, vanilla bean, or carrot cake in 6-inch to 10-inch sizes.</li>
+          <li><strong>Celebration Cakes:</strong> Custom decorated cakes for birthdays, graduations, and showers.</li>
+          <li><strong>Event and Sheet Cakes:</strong> Serves 20 to 100 guests, ideal for event planners.</li>
+        </ul>
+        <p>Cakes require at least 72 hours' notice.</p>
+        <p><a class="button" href="contact.html">Request a custom cake</a></p>
+      </section>
+    </div>
 
-    <section aria-labelledby="allergy-heading">
+    <section class="notice" aria-labelledby="allergy-heading">
       <h2 id="allergy-heading">Allergy Information</h2>
       <p>Our kitchen handles wheat, milk, eggs, tree nuts, peanuts, soy, and sesame. Please tell us about any allergies when you place a pre-order so we can help you choose safely.</p>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
     <p>&copy; 2026 North Star Bakery. All rights reserved.</p>
     <p>214 Maple Avenue, Northfield, MN 55057 | <a href="tel:+15075550142">(507) 555-0142</a> | <a href="mailto:hello@northstarbakery.example">hello@northstarbakery.example</a></p>
+    </div>
   </footer>
 </body>
 </html>
