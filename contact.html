@@ -6,6 +6,9 @@
   <meta name="description" content="Send North Star Bakery a pre-order request or general question, and find our location and hours.">
   <title>Contact and Pre-Orders | North Star Bakery</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/contact-form.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -35,23 +38,35 @@
       <h2 id="form-heading">Pre-Order and Inquiry Request</h2>
       <p>Fields marked with an asterisk (*) are required.</p>
 
-      <form action="#" method="post">
+      <div id="form-success" class="form-success" role="status" tabindex="-1" hidden></div>
+      <div id="form-summary" class="form-summary" role="alert" tabindex="-1" hidden></div>
+      <p id="list-notice" class="form-notice" hidden></p>
+
+      <form id="request-form" action="#" method="post">
         <fieldset>
           <legend>Your Contact Information</legend>
 
           <p>
             <label for="full-name">Full name *</label><br>
-            <input type="text" id="full-name" name="full-name" autocomplete="name" required minlength="2" maxlength="60">
+            <input type="text" id="full-name" name="full-name" autocomplete="name" required minlength="2" maxlength="60" aria-describedby="full-name-error">
+            <span class="field-error" id="full-name-error"></span>
           </p>
 
           <p>
             <label for="email">Email address *</label><br>
-            <input type="email" id="email" name="email" autocomplete="email" required placeholder="name@example.com">
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="name@example.com" aria-describedby="email-error">
+            <span class="field-error" id="email-error"></span>
           </p>
 
           <p>
             <label for="phone">Phone number (optional, format 555-555-5555)</label><br>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Use the format 555-555-5555">
+            <input type="tel" id="phone" name="phone" autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Use the format 555-555-5555" aria-describedby="phone-error">
+            <span class="field-error" id="phone-error"></span>
+          </p>
+
+          <p class="check-option">
+            <input type="checkbox" id="remember-me" name="remember-me">
+            <label for="remember-me">Remember my name, email, and phone on this device</label>
           </p>
         </fieldset>
 
@@ -77,7 +92,9 @@
 
           <p>
             <label for="pickup-date">Pickup date *</label><br>
-            <input type="date" id="pickup-date" name="pickup-date" required min="2026-01-01" max="2027-12-31">
+            <input type="date" id="pickup-date" name="pickup-date" required min="2026-01-01" max="2027-12-31" aria-describedby="pickup-date-hint pickup-date-error">
+            <span class="field-hint" id="pickup-date-hint">We are closed Mondays. Pre-orders need 1 day of notice, and custom cakes need 3 days.</span>
+            <span class="field-error" id="pickup-date-error"></span>
           </p>
 
           <p>
@@ -91,7 +108,9 @@
 
           <p>
             <label for="item-details">Item details *</label><br>
-            <textarea id="item-details" name="item-details" rows="5" cols="40" required minlength="5" maxlength="500" placeholder="Example: 1 Signature Loaf and 1 dozen chocolate chunk cookies"></textarea>
+            <textarea id="item-details" name="item-details" rows="5" cols="40" required minlength="5" maxlength="500" placeholder="Example: 1 Signature Loaf and 1 dozen chocolate chunk cookies" aria-describedby="item-details-count item-details-error"></textarea>
+            <span class="field-hint" id="item-details-count">0 of 500 characters used</span>
+            <span class="field-error" id="item-details-error"></span>
           </p>
 
           <p>

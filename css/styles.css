@@ -4,7 +4,8 @@
    media queries at the bottom add multi-column layouts for
    tablets and desktops.
 
-   Color palette (4 colors, taken from the bakery logo)
+   Color palette (4 colors, taken from the bakery logo;
+   Touchstone 4 adds an error red #9E2A1F and success green #2F5D34)
      Loaf Brown   #5C3A2E  headings, header, buttons, links
      Wheat Tan    #C49E82  borders, accents, highlight blocks
      Flour Cream  #FBF6F0  page and card backgrounds
@@ -510,6 +511,338 @@ textarea:focus {
   margin: 0;
 }
 
+/* ---------- Touchstone 4: JavaScript features ---------- */
+
+/* Text only screen readers hear (status messages, button context) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Pre-Order List builder (products page) */
+#preorder-builder .builder {
+  display: none;              /* shown once JavaScript is running */
+}
+
+#preorder-builder.is-ready .builder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.builder-menu {
+  flex: 2;
+  min-width: 0;
+}
+
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.filter-button,
+.button-secondary {
+  background-color: var(--cream);
+  color: var(--brown);
+}
+
+.filter-button[aria-pressed="true"] {
+  background-color: var(--brown);
+  color: var(--cream);
+}
+
+.filter-button:hover,
+.button-secondary:hover {
+  background-color: var(--tan);
+  border-color: var(--brown);
+  color: var(--ink);
+}
+
+.filter-button[aria-pressed="true"]:hover {
+  background-color: var(--ink);
+  color: var(--cream);
+}
+
+.allergen-filter {
+  padding: var(--space-sm);
+}
+
+.allergen-filter legend {
+  font-size: 1rem;
+}
+
+.check-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.check-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 400;
+}
+
+.check-option input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0;
+  accent-color: var(--brown);
+}
+
+.check-option label {
+  font-weight: 400;
+}
+
+.filter-note {
+  margin: var(--space-xs) 0 0;
+  font-size: 0.9rem;
+}
+
+.menu-count {
+  font-weight: 700;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--space-sm);
+  background-color: #ffffff;
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+}
+
+.menu-item.in-list {
+  border: 2px solid var(--brown);
+  box-shadow: inset 0 4px 0 var(--brown);
+}
+
+.menu-item h3 {
+  margin-bottom: 0.25rem;
+}
+
+.menu-item p {
+  margin-bottom: 0.25rem;
+}
+
+.item-price {
+  font-weight: 700;
+  color: var(--brown);
+}
+
+.item-allergens {
+  font-size: 0.9rem;
+}
+
+.add-button,
+.qty-stepper {
+  margin-top: auto;           /* keeps controls lined up at the card bottom */
+}
+
+.add-button {
+  width: 100%;
+}
+
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.qty-stepper button {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.qty-stepper button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  font-weight: 700;
+}
+
+.preorder-panel {
+  flex: 1;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.preorder-panel h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.list-count {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.list-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-sm);
+}
+
+.list-items li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-xs);
+  padding: var(--space-xs) 0;
+  margin: 0;
+  border-bottom: 1px solid var(--tan);
+}
+
+.list-name {
+  flex: 1;
+}
+
+.list-price {
+  font-weight: 700;
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--brown);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-decoration-color: var(--tan);
+}
+
+.link-button:hover {
+  background: none;
+  text-decoration-color: var(--brown);
+}
+
+.list-total {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.list-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.list-actions[hidden] {
+  display: none;
+}
+
+/* Form validation feedback (contact page) */
+.field-hint,
+.field-error {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.field-hint {
+  margin-top: 0.3rem;
+}
+
+.field-error {
+  margin-top: 0.3rem;
+  color: #9E2A1F;
+  font-weight: 700;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+.field-error::before {
+  content: "\26A0  ";        /* warning sign */
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #9E2A1F;
+  background-color: #FCEBE8;
+}
+
+.form-summary,
+.form-success,
+.form-notice {
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+}
+
+.form-summary {
+  border: 2px solid #9E2A1F;
+  border-left-width: 8px;
+  background-color: #FCEBE8;
+}
+
+.form-summary p,
+.form-summary ul {
+  margin-bottom: var(--space-xs);
+}
+
+.form-summary a,
+.form-summary strong {
+  color: #9E2A1F;
+}
+
+.form-success {
+  border: 2px solid #2F5D34;
+  border-left-width: 8px;
+  background-color: #EEF4EC;
+}
+
+.form-success p {
+  margin: 0;
+}
+
+.form-success strong {
+  color: #2F5D34;
+}
+
+.form-notice {
+  border: 2px solid var(--tan);
+  border-left: 8px solid var(--brown);
+  background-color: #ffffff;
+}
+
 /* ---------- Table ---------- */
 table {
   width: 100%;
@@ -623,6 +956,18 @@ thead th {
 
   .site-header nav ul {
     justify-content: flex-end;
+  }
+
+  /* Menu on the left, Pre-Order List panel on the right */
+  #preorder-builder.is-ready .builder {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .preorder-panel {
+    position: sticky;
+    top: var(--space-md);
+    width: auto;
   }
 
   .contact-layout {

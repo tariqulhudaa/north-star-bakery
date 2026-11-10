@@ -6,6 +6,9 @@
   <meta name="description" content="Browse North Star Bakery's handmade breads, pastries, and cakes with price ranges. Pre-order for pickup.">
   <title>Breads, Pastries, and Cakes | North Star Bakery</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/preorder-list.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -80,6 +83,42 @@
         <p><a class="button" href="contact.html">Request a custom cake</a></p>
       </section>
     </div>
+
+    <section id="preorder-builder" aria-labelledby="builder-heading">
+      <h2 id="builder-heading">Build Your Pre-Order List</h2>
+      <p>Pick the breads and pastries you would like us to set aside. Your list is saved on this device, and it is added to the request form for you when you go to the Contact page. For cakes, use the custom cake request above.</p>
+      <noscript>
+        <p>The list builder needs JavaScript. You can still list your items in the <a href="contact.html">pre-order form</a>.</p>
+      </noscript>
+
+      <div class="builder">
+        <div class="builder-menu">
+          <div class="filter-bar">
+            <div class="category-buttons" id="category-buttons" role="group" aria-label="Show items by category"></div>
+            <fieldset class="allergen-filter">
+              <legend>Hide items made with</legend>
+              <div id="allergen-options" class="check-row"></div>
+              <p class="filter-note">Every item contains wheat, and our kitchen also handles nuts and peanuts. Hiding an item lowers your risk but cannot remove it.</p>
+            </fieldset>
+          </div>
+          <p id="menu-count" class="menu-count" aria-live="polite"></p>
+          <ul id="menu-grid" class="menu-grid"></ul>
+        </div>
+
+        <aside class="preorder-panel card" aria-labelledby="list-heading">
+          <h3 id="list-heading" tabindex="-1">My Pre-Order List <span id="list-count" class="list-count">0 items</span></h3>
+          <p id="list-empty">Your list is empty. Choose &ldquo;Add to list&rdquo; on any item to start.</p>
+          <ul id="list-items" class="list-items"></ul>
+          <p class="list-total">Estimated total: <strong id="list-total">$0.00</strong></p>
+          <p class="filter-note">Pay when you pick up. Final prices may change slightly with seasonal items.</p>
+          <div id="list-actions" class="list-actions">
+            <a class="button" href="contact.html">Send this list as a pre-order</a>
+            <button type="button" id="clear-list" class="button-secondary">Clear list</button>
+          </div>
+        </aside>
+      </div>
+      <p id="builder-status" class="visually-hidden" role="status"></p>
+    </section>
 
     <section class="notice" aria-labelledby="allergy-heading">
       <h2 id="allergy-heading">Allergy Information</h2>
